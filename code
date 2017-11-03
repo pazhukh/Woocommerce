@@ -1,3 +1,6 @@
 //показувати загальну кількість товарів в корзині біля посилання на корзину
 https://docs.woocommerce.com/document/show-cart-contents-total/
 <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>"><?php echo sprintf(WC()->cart->get_cart_contents_count()) ?>cart</a>
+
+//показувати кількість унікальних товарів в корзині
+<?php echo count(WC()->cart->get_cart());	?>
