@@ -4,3 +4,13 @@ https://docs.woocommerce.com/document/show-cart-contents-total/
 
 //показувати кількість унікальних товарів в корзині
 <?php echo count(WC()->cart->get_cart());	?>
+
+//якщо залогінений показувати посилання на мій кабінет
+<?php if ( is_user_logged_in() ) : ?>
+				<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="button pay wc-backward"><?php _e( 'My account', 'woocommerce' ); ?></a>
+			<?php endif; ?>
+      
+//посилання в магазин
+			<a class="button wc-backward" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
+				<?php _e( 'Return to shop', 'woocommerce' ) ?></a>
+			</p>
