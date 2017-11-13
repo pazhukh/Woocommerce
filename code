@@ -5,6 +5,9 @@ https://docs.woocommerce.com/document/show-cart-contents-total/
 //показувати кількість унікальних товарів в корзині
 <?php echo count(WC()->cart->get_cart());	?>
 
+//якщо корзина пуста
+if(WC()->cart->is_empty()){}
+
 //якщо залогінений показувати посилання на мій кабінет
 <?php if ( is_user_logged_in() ) : ?>
 	<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="button pay wc-backward"><?php _e( 'My account', 'woocommerce' ); ?></a>
