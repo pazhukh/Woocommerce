@@ -26,3 +26,6 @@ if(WC()->cart->is_empty()){}
 	</li>
 <?php endforeach; ?>
 </ul>
+
+//показувати значок валюти
+get_woocommerce_currency_symbol()
