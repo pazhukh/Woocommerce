@@ -1,2 +1,16 @@
-<?php echo _e( 'Total:', 'woocommerce' ); ?>
-<?php echo _e( 'Order', 'woocommerce' ); ?>
+ _e( 'Total:', 'woocommerce' ) - Загалом
+ _e( 'Totals', 'woocommerce' ) - Підсумок
+_e( 'Order', 'woocommerce' ) - Замовлення
+_x( '#', 'hash before order number', 'woocommerce' ) - №
+_e( 'Order status:', 'woocommerce' ) - Статус замовлення
+_e( 'Quantity', 'woocommerce' ) - Кількість
+
+
+
+
+
+
+
+//Wordpress переклад
+_e( 'Color' ) - Колір
+_e( 'Size' ) - Розмір
