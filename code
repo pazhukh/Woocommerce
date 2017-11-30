@@ -2,11 +2,17 @@
 https://docs.woocommerce.com/document/show-cart-contents-total/
 <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>"><?php echo sprintf(WC()->cart->get_cart_contents_count()) ?>cart</a>
 
+************************************************************************************************************
+
 //показувати кількість унікальних товарів в корзині
 <?php echo count(WC()->cart->get_cart());	?>
 
+************************************************************************************************************
+
 //якщо корзина пуста
 if(WC()->cart->is_empty()){}
+
+************************************************************************************************************
 
 //якщо залогінений показувати посилання на мій кабінет
 <?php if ( is_user_logged_in() ) : ?>
@@ -18,7 +24,9 @@ if(WC()->cart->is_empty()){}
 	<?php _e( 'Return to shop', 'woocommerce' ) ?></a>
 </p>
 
-//коказуємо сторінки мого кабінету
+************************************************************************************************************
+
+//показуємо сторінки мого кабінету
 <ul>
 <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
 	<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
@@ -27,5 +35,17 @@ if(WC()->cart->is_empty()){}
 <?php endforeach; ?>
 </ul>
 
+************************************************************************************************************
+
 //показувати значок валюти
 get_woocommerce_currency_symbol()
+
+************************************************************************************************************
+
+//виводимо на archive-product опис категорії
+<?php 
+        $cate = get_queried_object();
+        $cateID = $cate->term_id;
+        $description = term_description($cateID, 'product_cat');
+        echo $description;
+        ?>
