@@ -1,1 +1,10 @@
 is_product_category()
+
+//виводимо на archive-product опис категорії, назву, ID
+<?php 
+        $cate = get_queried_object();
+        $description = $cate->name;
+	$description = $cate->term_id;
+	$description = $cate->description;
+        echo $description;
+        ?>
