@@ -13,6 +13,7 @@ function cart_update_qty_script() {
 endif;
 }
 
+************************************************************************************************************
 
 //відразу виходити з облікового запису
 function iconic_bypass_logout_confirmation() {
@@ -23,3 +24,14 @@ function iconic_bypass_logout_confirmation() {
 	}
 }
 add_action( 'template_redirect', 'iconic_bypass_logout_confirmation' );
+
+************************************************************************************************************
+
+//add quick link to dashboard hook
+add_action ('woocommerce_single_product_summary', 'link_to_dashboard', 5);
+function link_to_dashboard () {
+	
+	if (is_user_logged_in()) {
+		edit_post_link('');
+	}
+}
