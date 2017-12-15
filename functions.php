@@ -1,3 +1,14 @@
+// Remove Add to Cart from Related Products	
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);	
+
+add_action ('woocommerce_share', 'links_for_unlogged', 5);
+function links_for_unlogged () {
+	
+	if (!is_user_logged_in()) {
+		get_template_part('woocommerce/single-product/no-buy-button', get_post_type());
+	}
+}
+
 //ajax оновлення кількості товару на сторінці кошика
 add_action( 'wp_footer', 'cart_update_qty_script' );
 function cart_update_qty_script() {
