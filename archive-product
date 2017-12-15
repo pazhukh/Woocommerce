@@ -24,3 +24,9 @@ function custom_loop(){
 	';
 }
 add_action('custom-content-product', 'custom_loop', 10, 1 );
+
+//in custom-product.php видаляємо всі хуки і додаємо наш
+do_action( 'custom-content-product' );
+
+
+************************************************************************************
