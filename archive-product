@@ -8,3 +8,19 @@ is_product_category()
 	$description = $cate->description;
         echo $description;
         ?>
+	
+************************************************************************************
+
+//add custom product content to archive-product page and related products
+//function.php
+function custom_loop(){
+	echo '
+	<a href="' . get_permalink() . '" class="product-item item">
+	<figure>
+	<img src="' . get_the_post_thumbnail_url() .' " alt="' . get_post(get_post_thumbnail_id())->post_title .'">
+	</figure>
+	<p class="title">' . get_the_title() . '</p>
+	</a>
+	';
+}
+add_action('custom-content-product', 'custom_loop', 10, 1 );
