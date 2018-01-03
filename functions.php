@@ -46,3 +46,19 @@ function link_to_dashboard () {
 		edit_post_link('');
 	}
 }
+
+************************************************************************************************************
+	
+//show chosen product variation in cart page
+//parameters 'pa_dress-color', $_product
+function the_prod_attr_cart($taxonomy, $_product){
+	$meta = $_product->attributes[$taxonomy];
+	if($meta){
+		$term = get_term_by('slug', $meta, $taxonomy);
+
+		echo '<p>' . $term->name . '</p>';
+	} else {
+		return false;
+	}
+	
+}
