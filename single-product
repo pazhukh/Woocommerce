@@ -1,3 +1,11 @@
+//чи є в наявності товар
+if (get_post_meta(get_the_ID(), '_stock_status', true) == 'outofstock') {
+		echo '<p class="stock out-of-stock">Нет в наличии</p>';
+	} else {
+		echo '<p class="stock in-stock">В наличии</p>';
+	}
+
+
 //Видаляємо вкладки і додаємо лише опис
 //function.php
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
