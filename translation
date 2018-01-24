@@ -8,7 +8,7 @@ _e( 'Quantity', 'woocommerce' ) - Кількість
 
 
 
-
+ echo esc_html__( 'Your Rating', 'woocommerce' );
 
 
 //Wordpress переклад
