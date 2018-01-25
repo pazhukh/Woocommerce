@@ -14,3 +14,5 @@ _e( 'Quantity', 'woocommerce' ) - Кількість
 //Wordpress переклад
 _e( 'Color' ) - Колір
 _e( 'Size' ) - Розмір
+
+<?php esc_html_e('Any text with HTML', 'kama'); ?>
