@@ -105,3 +105,19 @@ function cs_add_order_again_to_my_orders_actions( $actions, $order ) {
 	return $actions;
 }
 add_filter( 'woocommerce_my_account_my_orders_actions', 'cs_add_order_again_to_my_orders_actions', 50, 2 );
+
+
+*****************************************************************************************************
+
+//змінити статус замовлення для всіх існуючих замовленнь
+function auto_update_orders_status_from_processing_to_completed(){
+    // Get all current "processing" customer orders
+    $processing_orders = wc_get_orders( $args = array(
+        'numberposts' => -1,
+        'post_status' => 'wc-processing',
+    ) );
+    if(!empty($processing_orders))
+        foreach($processing_orders as $order)
+            $order->update_status( 'completed' );
+}
+add_action( 'init', 'auto_update_orders_status_from_processing_to_completed' );
