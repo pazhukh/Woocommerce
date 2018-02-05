@@ -79,3 +79,29 @@ function remove_my_account_links( $menu_links ){
 
 	return $menu_links;
 }
+
+************************************************************************************************************
+
+/**
+ * Auto Complete all WooCommerce orders.
+ */
+add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
+function custom_woocommerce_auto_complete_order( $order_id ) { 
+    if ( ! $order_id ) {
+        return;
+    }
+
+    $order = wc_get_order( $order_id );
+    $order->update_status( 'completed' );
+}
+//show order again button to complit order in my account page
+function cs_add_order_again_to_my_orders_actions( $actions, $order ) {
+	if ( $order->has_status( 'completed' ) ) {
+		$actions['order-again'] = array(
+			'url'  => wp_nonce_url( add_query_arg( 'order_again', $order->id ) , 'woocommerce-order_again' ),
+			'name' => __( 'Order Again', 'woocommerce' )
+		);
+	}
+	return $actions;
+}
+add_filter( 'woocommerce_my_account_my_orders_actions', 'cs_add_order_again_to_my_orders_actions', 50, 2 );
