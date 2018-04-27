@@ -2,6 +2,14 @@
 shop_catalog, shop_single, shop_thumbnail
 
 ************************************************************************************************************
+
+//картинка категорії по id категорії
+$termId = 5;
+$thumbnail_id = get_woocommerce_term_meta( $termId, 'thumbnail_id', true ); 
+$image_url = wp_get_attachment_url( $thumbnail_id );
+
+************************************************************************************************************
+
 //міняємо значок гривні на слово грн
 add_filter( 'woocommerce_currencies', 'add_my_currency' );
 function add_my_currency( $currencies ) {
